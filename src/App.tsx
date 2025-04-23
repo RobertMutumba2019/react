@@ -2,15 +2,16 @@ import React from "react";
 import List from "./Component/List";
 
 const App = () => {
-  const fruits = ["Apple", "Banana", "Orange", "Mango"];
-
-  const handleItemClick = (item: string) => {
-    alert(`You clicked on: ${item}`);
-  };
+  const people = ["Alice", "Bob", "Charlie"];
 
   return (
-    <div className="container mt-3">
-      <List items={fruits} onItemClick={handleItemClick} />
+    <div className="container mt-4">
+      <List
+        items={people}
+        onItemClick={(name) => alert(`Clicked on: ${name}`)}
+      >
+        <p className="text-muted">Click on a name to interact with it:</p>
+      </List>
     </div>
   );
 };

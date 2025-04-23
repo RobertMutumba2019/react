@@ -1,11 +1,13 @@
+// 
 import React from "react";
 
 interface ListProps {
   items: string[];
   onItemClick?: (item: string) => void;
+  children?: React.ReactNode;
 }
 
-const List: React.FC<ListProps> = ({ items, onItemClick }) => {
+const List: React.FC<ListProps> = ({ items, onItemClick, children }) => {
   const handleClick = (item: string) => {
     if (onItemClick) {
       onItemClick(item);
@@ -17,6 +19,9 @@ const List: React.FC<ListProps> = ({ items, onItemClick }) => {
   return (
     <>
       <h1>List</h1>
+      
+      {children && <div className="mb-2">{children}</div>}
+      
       <ul className="list-group">
         {items.map((item, index) => (
           <li
